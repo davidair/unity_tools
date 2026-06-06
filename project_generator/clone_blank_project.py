@@ -391,9 +391,10 @@ def parse_args(argv: List[str]) -> Options:
         help="List discovered templates and exit.",
     )
 
-    args = parser.parse_args(argv)
+    # Hack - if --list-templates is specified, do not parse args.
+    # This is needed because otherwise required args would trip an early failure
 
-    if args.list_templates:
+    if "--list-templates" in argv:
         if not templates:
             print("No templates discovered in current directory.")
         else:
@@ -401,6 +402,8 @@ def parse_args(argv: List[str]) -> Options:
             for t in templates:
                 print(f"  - {t}")
         sys.exit(0)
+
+    args = parser.parse_args(argv)
 
     overrides = parse_pkg_overrides(args.pkg)
 
