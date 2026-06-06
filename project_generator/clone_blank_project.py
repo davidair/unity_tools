@@ -39,6 +39,7 @@ UNITY_LINE_PRESETS: Dict[str, Dict[str, str]] = {
         "com.unity.ide.vscode": "1.2.5",
         "com.unity.ide.visualstudio": "2.0.22",
         "com.unity.ide.rider": "3.0.36",
+        "com.unity.inputsystem": "1.18.0",        
         "com.unity.render-pipelines.universal": "14.0.12",
         "com.unity.xr.openxr": "1.14.3",
         "com.unity.xr.management": "4.4.0",
@@ -47,6 +48,7 @@ UNITY_LINE_PRESETS: Dict[str, Dict[str, str]] = {
         # Unity 6: VS Code is supported via com.unity.ide.visualstudio; com.unity.ide.vscode is deprecated.
         "com.unity.ide.visualstudio": "2.0.27",
         "com.unity.ide.rider": "3.0.39",
+        "com.unity.inputsystem": "1.18.0",
         "com.unity.render-pipelines.universal": "17.3.0",
         "com.unity.xr.openxr": "1.16.1",
         "com.unity.xr.management": "4.5.3",
@@ -57,8 +59,8 @@ UNITY_LINE_PRESETS: Dict[str, Dict[str, str]] = {
 
 # Profiles define baseline packages beyond what your template already contains.
 PROFILE_DEFS: Dict[str, List[str]] = {
-    "barebones-builtin": [],
-    "barebones-urp": ["com.unity.render-pipelines.universal"],
+    "barebones-builtin": ["com.unity.inputsystem"],
+    "barebones-urp": ["com.unity.inputsystem", "com.unity.render-pipelines.universal"],
 }
 
 # Add-ons define optional bundles.
